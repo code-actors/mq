@@ -6,6 +6,7 @@ on:
     tags:
       - 'v*'
   pull_request:
+  workflow_dispatch:
 
 jobs:
   build-and-test:
@@ -86,3 +87,4 @@ jobs:
           for package in ./packages/*.nupkg; do
             dotnet nuget push "$package" --api-key "$NUGET_API_KEY" --source "$NUGET_SOURCE" --skip-duplicate
           done
+
